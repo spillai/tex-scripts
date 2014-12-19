@@ -1,3 +1,4 @@
+# Pdf compression for all files within a subfolder
 import os
 import sys
 import fnmatch
