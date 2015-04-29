@@ -19,7 +19,7 @@
 ###           # do something...
 ###
 
-PDFLATEX	?= pdflatex -halt-on-error -file-line-error
+PDFLATEX	?= pdflatex --shell-escape -halt-on-error -file-line-error 
 BIBTEX		?= bibtex
 
 ifneq ($(QUIET),)
