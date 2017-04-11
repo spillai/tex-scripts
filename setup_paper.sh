@@ -1,6 +1,9 @@
 #!/bin/bash
 
 # A script to setup a git repo with the tex_scripts submodule
+# - First creates directory <paper_name> for paper, and intializes a git repo within it
+# - Creates a git submodule with the tex-scripts repo at <paper_name>/scripts/
+# - Copies the Makefile to compile paper.tex
 
 # Constants
 TITLE=$1
@@ -25,5 +28,6 @@ git submodule add git@github.com:spillai/tex-scripts.git scripts
 cp scripts/Makefile Makefile
 
 echo "Modify Makefile with correct title"
+echo "Defaults to paper.tex"
 
 
