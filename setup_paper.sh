@@ -16,12 +16,12 @@ git add .
 
 echo "First commit"
 git commit -am 'First commit'
-git remote add origin git@github.mit.edu:spillai/$TITLE.git
+git remote add origin git@github.com:spillai/$TITLE.git
 git push -u origin master
 
 # A script to setup a git repo with the tex_scripts submodule
 echo "Set up tex-scripts submodule"
-git submodule add git@github.mit.edu:spillai/tex-scripts.git scripts
+git submodule add git@github.com:spillai/tex-scripts.git scripts
 cp scripts/Makefile Makefile
 
 echo "Modify Makefile with correct title"
