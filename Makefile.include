@@ -155,3 +155,7 @@ clean:
 		$(REVDEPS) $(AUXFILES) $(LOGFILES) \
 		$(EXTRACLEAN)
 
+fast:
+	$(PDFLATEX) $(TEXTARGETS)
+
+        
