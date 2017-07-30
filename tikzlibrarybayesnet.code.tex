@@ -59,6 +59,21 @@ below left=5pt and 0pt of #1.south east] %
   } ;
 }
 
+% \factoredge [options] {inputs} {factors} {outputs}
+\newcommand{\factoredgeundirected}[4][]{ %
+  % Connect all nodes #2 to all nodes #4 via all factors #3.
+  \foreach \f in {#3} { %
+    \foreach \x in {#2} { %
+      \path (\x) edge[-,#1] (\f) ; %
+      %\draw[-,#1] (\x) edge[-] (\f) ; %
+    } ;
+    \foreach \y in {#4} { %
+      \path (\f) edge[-, >={triangle 45}, #1] (\y) ; %
+      %\draw[->,#1] (\f) -- (\y) ; %
+    } ;
+  } ;
+}
+
 % \edge [options] {inputs} {outputs}
 \newcommand{\edge}[3][]{ %
   % Connect all nodes #2 to all nodes #3.
@@ -78,6 +93,16 @@ below left=5pt and 0pt of #1.south east] %
   % Connect all inputs to outputs via this factor
   \factoredge {#4} {#2-alias} {#5} ; %
 }
+
+% \factor [options] {name} {caption} {inputs} {outputs}
+\newcommand{\factorundirected}[5][]{ %
+  % Draw the factor node. Use alias to allow empty names.
+  \node[factor, label={[name=#2-caption]#3}, name=#2, #1,
+  alias=#2-alias] {} ; %
+  % Connect all inputs to outputs via this factor
+  \factoredgeundirected {#4} {#2-alias} {#5} ; %
+}
+
 
 % \plate [options] {name} {fitlist} {caption}
 \newcommand{\plate}[4][]{ %
