@@ -31,6 +31,7 @@
 \newcommand{\ve}{\bm{e}}
 \newcommand{\vq}{\bm{q}}
 \newcommand{\vp}{\bm{p}}
+\newcommand{\vw}{\bm{w}}
 
 \newcommand{\Bmu}{\mathbf{\mu}}
 \newcommand{\Btheta}  {\mathbf{\theta}}
@@ -47,7 +48,16 @@
 \newcommand{\Be}{\mathbf{e}}
 \newcommand{\Bq}{\mathbf{q}}
 \newcommand{\Bp}{\mathbf{p}}
+\newcommand{\Bw}{\mathbf{w}}
+\newcommand{\Bg}{\mathbf{g}}
 
+\newcommand{\BX}{\mathbf{X}}
+\newcommand{\BM}{\mathbf{M}}
+\newcommand{\BL}{\mathbf{L}}
+\newcommand{\BU}{\mathbf{U}}
+\newcommand{\BZ}{\mathbf{Z}}
+\newcommand{\BG}{\mathbf{G}}
+\newcommand{\BR}{\mathbf{R}}
 
 \newcommand{\Ac}{\mathcal{A}}   
 \newcommand{\Kc}{\mathcal{K}}
@@ -55,6 +65,14 @@
 \newcommand{\Gc}{\mathcal{G}}
 \newcommand{\Sc}{\mathcal{S}}
 \newcommand{\Ic}{\mathcal{I}}
+\newcommand{\Xc}{\mathcal{X}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\Oc}{\mathcal{O}}
+\newcommand{\Mc}{\mathcal{M}}
+\newcommand{\Nc}{\mathcal{N}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\Vc}{\mathcal{V}}
+\newcommand{\Zc}{\mathcal{Z}}
 
 \newcommand{\ib}{\bar{i}}
 
@@ -76,13 +94,55 @@
 \newcommand{\algo}{\textsc{Gmml}\xspace}
 
 \renewcommand{\floatpagefraction}{.95}
-% \DeclareMathOperator{\Diag}{Diag}
-% \DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\Diag}{Diag}
+\DeclareMathOperator{\trace}{tr}
 
 %\numberwithin{equation}{section}
 
 \newcommand{\red}[1]{{\color{red}#1}}
 % \newcommand{\argmax}[1]{\underset{#1}{\operatorname{argmax}}}
 % \newcommand{\argmin}[1]{\underset{#1}{\operatorname{argmin}}}
-\DeclareMathOperator*{\argminA}{arg\,min} % Jan Hlavacek
-\DeclareMathOperator*{\argmaxA}{arg\,max} % Jan Hlavacek
+\DeclareMathOperator*{\argmin}{arg\,min} % Jan Hlavacek
+\DeclareMathOperator*{\argmax}{arg\,max} % Jan Hlavacek
+
+% small O notation
+\newcommand\smallO{
+  \mathchoice
+    {{\scriptstyle\mathcal{O}}}% \displaystyle
+    {{\scriptstyle\mathcal{O}}}% \textstyle
+    {{\scriptscriptstyle\mathcal{O}}}% \scriptstyle
+    {\scalebox{.6}{$\scriptscriptstyle\mathcal{O}$}}%\scriptscriptstyle
+  }
+
+% scientific notation
+\newcommand{\expnumber}[2]{{#1}\mathrm{e}{#2}}
+
+% Underbrace wrap
+\newcommand{\xsub}[1]{%
+  \mbox{\scriptsize\begin{tabular}{@{}c@{}}#1\end{tabular}}%
+  }
+\newcommand\underbracewrap[2]{\underbrace{#1}_{\xsub{#2}}}
+
+% Underbrace wrap
+\newcommand*{\myfiguretitle}[2]{\fontfamily{phv}\fontsize{#2}{#2}\selectfont
+#1}
+
+% Short version in text as well
+\newcommand*\mycaption[2]{\caption[#1]{\textbf{#1}~$\blacktriangleright$~#2}}
+
+% \makeatletter
+% \let\ams@underbrace=\underbrace
+% \def\underbrace#1_#2{%  
+%   \setbox0=\hbox{$\displaystyle#1$}%
+%   \ams@underbrace{#1}_{\parbox[t]{\the\wd0}{#2}}%
+% }
+% \makeatother        
+
+% Placeholder figure
+\newcommand{\placeholderfigure}[1]{
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.5\columnwidth]{scripts/graphics/placeholder.png}
+  \caption{Placeholder}{{\color{red} #1}}
+\end{figure}
+}
