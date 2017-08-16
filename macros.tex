@@ -146,3 +146,11 @@
   \caption{Placeholder}{{\color{red} #1}}
 \end{figure}
 }
+
+% Colored fbox
+\newcommand{\cfbox}[2]{%
+  \colorlet{currentcolor}{.}%
+  {\color{#1}%
+    \fbox{\color{currentcolor}#2}}%
+}
+
